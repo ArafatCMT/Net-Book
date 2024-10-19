@@ -34,7 +34,7 @@ class RegistrationView(APIView):
             token = default_token_generator.make_token(user)
             uid = urlsafe_base64_encode(force_bytes(user.pk))
 
-            verification_link = f"https://net-book-klqt.onrender.com/accounts/verify/{uid}/{token}"
+            verification_link = f"https://net-book.vercel.app/accounts/verify/{uid}/{token}"
 
             email_subject = "Verify Your Account"
             email_body = render_to_string('verification_mail.html', {'verification_link': verification_link})
