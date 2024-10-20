@@ -72,15 +72,17 @@ class LoginView(APIView):
             # print(username, password)
 
             user = authenticate(username=username, password=password)
-            # print(user)
+            print(user)
 
             if user:
                 token, _ = Token.objects.get_or_create(user=user)
-                # print('get',token)
+                print('get',token)
+                print(_)
 
                 login(request, user)
-                account = Account.objects.get(user=request.user)
+                account = Account.objects.get(user=user)
                 print(account.id)
+                print(account)
                 return Response({'token': token.key, 'account_id': account.id})
             else:
                 return Response({'error': "Invalid Credential"})
