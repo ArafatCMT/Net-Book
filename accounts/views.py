@@ -81,7 +81,7 @@ class LoginView(APIView):
 
                 login(request, user)
                 try:
-                    account = Account.objects.get(user=user)
+                    account = Account.objects.get(user=request.user)
                     # print(account.id)
                     # print(account)
                     return Response({'token': token.key, 'account_id': account.id})
