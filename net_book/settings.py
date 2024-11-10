@@ -54,6 +54,7 @@ INSTALLED_APPS = [
     'comments',
     'likes',
     'posts',
+    'groups', #
 ]
 REST_FRAMEWORK = {
     'DEFAULT_AUTHENTICATION_CLASSES': [
